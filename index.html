@@ -11,6 +11,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display";
   letter-spacing: 5px;
 }
+.test{
+    padding: 20px 25px;
+    border-radius: 5px;
+    background-color: #b8d2fa;
+}
 
 .column {
   float: left;
@@ -116,12 +121,13 @@ h1, h2, h3, h4, h5, h6 {
     </div>
 
     <div class="w3-col m6 w3-padding-large">
+    <div class="test">
       <h1 class="w3-center">About</h1><br>
       <h5 class="w3-center">What is Neural Information Retrieval?</h5>
       <p class="w3-large">Information retrieval is a tool that almost everyone is familiar with. If you have ever used a search engine (Google, Bing, Amazon, Online Store search etc.) then you have used information retrieval. Google’s Search statistics show that there are over 8.5 billion searches over a day. Search engines play a large role in everyone’s day to day life, whether it is for school, work, or need of a quick answer, we are constantly online making search requests. Any incremental improvements in the search algorithm can have  a significant impact. Our goal is to improve search engines by decreasing the time in the retrieval process. To conquer this task, we will be leveraging the algorithm SPLADE.  </p>
       <h5 class="w3-center">What is SPLADE?</h5>
       <p class="w3-large">SPLADE stands for Sparse Lexical AnD Expansion Model for first stage ranking. A common issue with search engines is the inability to pick up passages unless it contains the exact vocabulary in the search query. SPLADE attempts to solve this issue by using query expansion in order to acquire more accurate passages. This is done by using the BERT MLM head and sparse regularization.</p>
-   
+    </div>
     </div>
   </div>
   
@@ -130,12 +136,11 @@ h1, h2, h3, h4, h5, h6 {
   <!-- Approach Section -->
   <div class="w3-row w3-padding-64" id="approach">
     <div class="w3-col l6 w3-padding-large">
+        <div class="test">
       <h1 class="w3-center">Our Approach</h1><br>
       <h4>Bread Basket</h4>
       <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
-    
-      <h4>Honey Almond Granola with Fruits</h4>
-      <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br> 
+    </div>
     </div>
     
     <div class="w3-col l6 w3-padding-large">
@@ -150,13 +155,17 @@ h1, h2, h3, h4, h5, h6 {
         <br>
         <br>
         <br>
+        <br>
+        <br>
     <img src="passage.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
     </div>
 
     <div class="w3-col m6 w3-padding-large">
+        <div class="test">
       <h1 class="w3-center">The Data</h1><br>
       <h5 class="w3-center">MSMARCO</h5>
       <p class="w3-large">For our project we leveraged the MS MARCO dataset consisting of 1,010,916 anonymised questions sampled from Bing’s search query logs as well as 8,841,823 passages extracted from 353,535 web documents. A query is a string that is inputted into the search bar. Through EDA we discovered that the number of words in a query ranges from 5 to 12 and mostly falls between 5 to 7 words. The passage is ideally a relevant result that is outputted after the query is inputted. From EDA we found that passages range from 0 to 1000 characters and are generally between ~230 to ~260 characters.</p>
+    </div>
     </div>
   </div>
 
