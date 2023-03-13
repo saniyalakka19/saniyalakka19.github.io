@@ -138,13 +138,42 @@ h1, h2, h3, h4, h5, h6 {
     <div class="w3-col l6 w3-padding-large">
         <div class="test">
       <h1 class="w3-center">Our Approach</h1><br>
-      <h4>Bread Basket</h4>
-      <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
+      <p>In the original SPLADE information retrieval (IR) system, the SPLADE generated query and document embedding similarity scores are exhaustively calculated. That is for Q queries and D documents, we generate QxD similarities. Our approaches center around improving the search component of the IR system by reducing the number of Query-Document similarity calculations computed at inference time.
+        </p>
+    <h4>Topic-Based Approach</h4>
+    <p>The high level idea here is to apply a faster filter to passages during document retrieval based on its topic, before it gets ranked along with all the passages. This insight comes from the observation that typically a query only falls within the realm of a small number of topics (e.g. sports, or history), and as a result, there are a large number of passages that can be filtered out purely based on its topic and does not need to enter the ranking stage of retrieval, since even if their score is 0, it still contributes to the time complexity of the ranking algorithm. As a result, our hypothesis is that it will make retrieval faster, especially when there are a large number of passages to retrieve from.
+        <br>
+        Concretely, our retrieval algorithm is as follows:
+        <br>
+        <ul>
+            <li>In addition to having a sparse index in the vocabulary space (BOW) for each passage, also use a pre-trained topic model to generate a sparse index which contains a topic score for each passage over the fixed topics (there are 19 of them).</li>
+            <li>Given an incoming query, use the same model to score this query against the same topics</li>
+            <li>Trim the topic vector of this query so only scores above a QUERY_THRESHOLD remain, and other topics will be set to 0. This makes the topic vector sparse.</li>
+            <li>Load the topic scores of all passages in memory, then trim them as well, so only scores above PASSAGE_THRESHOLD remain, the other entries will be set to 0. This makes the passage topic vectors sparse too.</li>
+            <li>As part of the SPLADE process, when scoring the passages for each query, consider if the query has any overlap of topics with the passage. If not, directly eliminate this passage from consideration and exclude this passage from the ranking stage. If yes, multiply the SPLADE score by the dot product (or cosine similarity) between the topic vectors of the query and the passage. As a result, passages that have a larger overlap with the query will get a higher score.</li>
+        </ul>
+        </p>
+
+        <h4>Binary Tree Approach</h4>
+    <p>  We have the SPLADE generated weights for each term in the BERT embedding space (about 35,000 terms) for each document. So for each document we have a 35000 length 1-D vector.
+        With no pre-sorting, we can recursively split the documents into groups, effectively making a binary tree. At each node, we take all documents in the subtree and calculate an aggregate metric for each term in the embedding space. We found better results using the max than using the average of the SPLADE generated term weights.
+        <br>
+        <br>
+        At inference time, when a query is supplied, rather than compared against all available documents, we calculate the similarity of the query to the aggregate document embedding at each node in the tree. We then follow the path of the tree with the higher similarity score. We can parameterize the number of documents returned by setting a predetermined depth of the tree or counting the number of leaf nodes available in the subtree.
+        <br>
+        <br>
+        We find this approach to have compelling results based on preliminary MRR@10 scores and the potential to greatly improve the retrieval efficiency of the IR system.
+        <br>
+        <br>
+        We are actively developing this approach, researching pre-sorting of the documents by similarity through hierarchical clustering and topic classification.
+        </p>
     </div>
     </div>
     
     <div class="w3-col l6 w3-padding-large">
-        <img src="splade.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+        <img src="binary.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+
+        <img src="binary.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
     </div>
   </div>
 
@@ -185,7 +214,7 @@ h1, h2, h3, h4, h5, h6 {
 
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-32">
-  <p>Last Updated 03/08/2023</p>
+  <p>Last Updated 03/13/2023</p>
 </footer>
 
 </body>
