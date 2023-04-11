@@ -113,12 +113,6 @@ h1, h2, h3, h4, h5, h6 {
 
   <!-- About Section -->
   <div class="w3-row w3-padding-64" id="about">
-    <div class="w3-col m6 w3-padding-large w3-hide-small">
-        <br>
-        <br>
-        <br>
-     <img src="splade.jpg" class="w3-round w3-image" alt="Table Setting" width="600" height="750">
-    </div>
 
     <div class="w3-col m6 w3-padding-large">
     <div class="test">
@@ -126,11 +120,18 @@ h1, h2, h3, h4, h5, h6 {
       <h5 class="w3-center">What is Neural Information Retrieval?</h5>
       <p class="w3-large">Information retrieval is a tool that almost everyone is familiar with. If you have ever used a search engine (Google, Bing, Amazon, Online Store search etc.) then you have used information retrieval. Google’s Search statistics show that there are over 8.5 billion searches over a day. Search engines play a large role in everyone’s day to day life, whether it is for school, work, or need of a quick answer, we are constantly online making search requests. Any incremental improvements in the search algorithm can have a significant impact on the daily lives of millions of people.</p>
       <h5 class="w3-center">The Problem Setup</h5>
-      <p class="w3-large">Formally, the goal of Information Retrieval is, given a specific text <b>query</b>, retrieve a set of pre-existing text <b>documents</b> (or used interchangeably, <b>passages</b> ) that are most <b>relevant</b> to the given query. <br> There is a long history of research on this problem, with techniques ranging from pure linguistics to utilizing neural networks in recent times. <br> One of the cutting-edge algorithms today is SPLADE, which will be the baseline our project attempts to improve on.</p>
+      <p class="w3-large">Formally, the goal of Information Retrieval is, given a specific text <b>query</b>, retrieve a set of pre-existing text <b>documents</b> (or used interchangeably, <b>passages</b> ) that are most <b>relevant</b> to the given query. <br><br> There is a long history of research on this problem, with techniques ranging from pure linguistics to utilizing neural networks in recent times. <br> <br> One of the cutting-edge algorithms today is SPLADE, which will be the baseline our project attempts to improve on.</p>
       <h5 class="w3-center">What is SPLADE?</h5>
-      <p class="w3-large">SPLADE stands for Sparse Lexical AnD Expansion Model. It is part of a family of algorithms based on the “Bag of Words” model of text, but also contains term expansion capabilities. <br> At a high level, SPLADE trains a model based on a Language Model called BERT with the goal of taking any text input, and generates a numeric vector in its vocabulary space (30522 dimensional), with each entry representing a relevance score of the corresponding word for the given text. <br> As a concrete example, consider the query “what is a car”. Using the plain bag-of-words representation, the output would be an all-zero vector of 30522 dimensions, except a 1 for the words “what”, “is”, “a”, and “car”. The problem with this naive approach is that, all documents that do not contain any of these 4 words will never be retrieved, even though they could be relevant (e.g. it uses the word “vehicle”). <br> SPLADE is essentially a more advanced version of this process, but has the ability to assign non-zero scores to words that are not in the original text. In this example, SPLADE would generate an output that assigns the word “car” a score of 2.84, “cars” 2.19, “vehicle” 1.25, etc. Even words such as “science” and “technology” received non-zero scores.</p>
+      <p class="w3-large">SPLADE stands for Sparse Lexical AnD Expansion Model. It is part of a family of algorithms based on the “Bag of Words” model of text, but also contains term expansion capabilities. <br> At a high level, SPLADE trains a model based on a Language Model called BERT with the goal of taking any text input, and generates a numeric vector in its vocabulary space (30522 dimensional), with each entry representing a relevance score of the corresponding word for the given text. <br><br>As a concrete example, consider the query “what is a car”. Using the plain bag-of-words representation, the output would be an all-zero vector of 30522 dimensions, except a 1 for the words “what”, “is”, “a”, and “car”. The problem with this naive approach is that, all documents that do not contain any of these 4 words will never be retrieved, even though they could be relevant (e.g. it uses the word “vehicle”). <br><br> SPLADE is essentially a more advanced version of this process, but has the ability to assign non-zero scores to words that are not in the original text. In this example, SPLADE would generate an output that assigns the word “car” a score of 2.84, “cars” 2.19, “vehicle” 1.25, etc. Even words such as “science” and “technology” received non-zero scores.</p>
     </div>
     </div>
+
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+      <br>
+      <br>
+      <br>
+   <img src="splade.jpg" class="w3-round w3-image" alt="Table Setting" width="600" height="750">
+  </div>
   </div>
   
   <hr>
