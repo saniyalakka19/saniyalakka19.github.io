@@ -16,7 +16,11 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 5px;
     background-color: #b8d2fa;
 }
-
+.test2{
+    padding: 20px 25px;
+    border-radius: 5px;
+    background-color: #b0dbbf96;
+}
 .column {
   float: left;
   width: 33.33%;
@@ -66,6 +70,7 @@ h1, h2, h3, h4, h5, h6 {
     <div class="w3-right w3-hide-small">
       <a href="#team" class="w3-bar-item w3-button">Team</a>
       <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#metrics" class="w3-bar-item w3-button">E2E & Metrics</a>
       <a href="#approach" class="w3-bar-item w3-button">Approach</a>
       <a href="#data" class="w3-bar-item w3-button">Data</a>
       <a href="#results" class="w3-bar-item w3-button">Results</a>
@@ -120,19 +125,52 @@ h1, h2, h3, h4, h5, h6 {
       <h5 class="w3-center">What is Neural Information Retrieval?</h5>
       <p class="w3-large">Information retrieval is a tool that almost everyone is familiar with. If you have ever used a search engine (Google, Bing, Amazon, Online Store search etc.) then you have used information retrieval. Google’s Search statistics show that there are over 8.5 billion searches over a day. Search engines play a large role in everyone’s day to day life, whether it is for school, work, or need of a quick answer, we are constantly online making search requests. Any incremental improvements in the search algorithm can have a significant impact on the daily lives of millions of people.</p>
       <h5 class="w3-center">The Problem Setup</h5>
-      <p class="w3-large">Formally, the goal of Information Retrieval is, given a specific text <b>query</b>, retrieve a set of pre-existing text <b>documents</b> (or used interchangeably, <b>passages</b> ) that are most <b>relevant</b> to the given query. <br><br> There is a long history of research on this problem, with techniques ranging from pure linguistics to utilizing neural networks in recent times. <br> <br> One of the cutting-edge algorithms today is SPLADE, which will be the baseline our project attempts to improve on.</p>
+      <p class="w3-large">Formally, the goal of Information Retrieval is, given a specific text <b>query</b>, retrieve a set of pre-existing text <b>documents</b> (or used interchangeably, <b>passages</b> ) that are most <b>relevant</b> to the given query. There is a long history of research on this problem, with techniques ranging from pure linguistics to utilizing neural networks in recent times. One of the cutting-edge algorithms today is SPLADE, which will be the baseline our project attempts to improve on.</p>
       <h5 class="w3-center">What is SPLADE?</h5>
-      <p class="w3-large">SPLADE stands for Sparse Lexical AnD Expansion Model. It is part of a family of algorithms based on the “Bag of Words” model of text, but also contains term expansion capabilities. <br> At a high level, SPLADE trains a model based on a Language Model called BERT with the goal of taking any text input, and generates a numeric vector in its vocabulary space (30522 dimensional), with each entry representing a relevance score of the corresponding word for the given text. <br><br>As a concrete example, consider the query “what is a car”. Using the plain bag-of-words representation, the output would be an all-zero vector of 30522 dimensions, except a 1 for the words “what”, “is”, “a”, and “car”. The problem with this naive approach is that, all documents that do not contain any of these 4 words will never be retrieved, even though they could be relevant (e.g. it uses the word “vehicle”). <br><br> SPLADE is essentially a more advanced version of this process, but has the ability to assign non-zero scores to words that are not in the original text. In this example, SPLADE would generate an output that assigns the word “car” a score of 2.84, “cars” 2.19, “vehicle” 1.25, etc. Even words such as “science” and “technology” received non-zero scores.</p>
+      <p class="w3-large">SPLADE stands for Sparse Lexical AnD Expansion Model. It is part of a family of algorithms based on the “Bag of Words” model of text, but also contains term expansion capabilities. <br> At a high level, SPLADE trains a model based on a Language Model called BERT with the goal of taking any text input, and generates a numeric vector in its vocabulary space (30522 dimensional), with each entry representing a relevance score of the corresponding word for the given text. <br>As a concrete example, consider the query “what is a car”. Using the plain bag-of-words representation, the output would be an all-zero vector of 30522 dimensions, except a 1 for the words “what”, “is”, “a”, and “car”. The problem with this naive approach is that, all documents that do not contain any of these 4 words will never be retrieved, even though they could be relevant (e.g. it uses the word “vehicle”). <br>SPLADE is essentially a more advanced version of this process, but has the ability to assign non-zero scores to words that are not in the original text. In this example, SPLADE would generate an output that assigns the word “car” a score of 2.84, “cars” 2.19, “vehicle” 1.25, etc. Even words such as “science” and “technology” received non-zero scores.</p>
     </div>
     </div>
 
+    <div class="w3-col m6 w3-padding-large">
+      <br>
+      <br> <br>
+      <br>
+   <img src="splade.jpg" class="w3-round w3-image" alt="Table Setting" width="800" height="1000">
+   </div>
+
+  </div>
+
+     <!-- E2E & Metrics Section -->
+  <div class="w3-row w3-padding-64" id="metrics">
     <div class="w3-col m6 w3-padding-large w3-hide-small">
-      <br>
-      <br>
-      <br>
-   <img src="splade.jpg" class="w3-round w3-image" alt="Table Setting" width="600" height="750">
+        <br>
+        <br>
+        <br>
+        <br>
+
+    <img src="mrr.jpg" class="w3-round w3-image" alt="Table Setting" width="700" height="950">
+    <br><br><br><br><br><br><br><br><br>
+    <img src="recall.jpg" class="w3-round w3-image" alt="Table Setting" width="700" height="950">
+
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <div class="test2">
+        <h5 class="w3-center">The end-to-end Process</h5>
+        <p class="w3-large">SPLADE uses an inverted index for fast retrieval, as a result, the end to end process involves two stages: offline indexing, and online retrieval. <br>For offline indexing, we take all the candidate passages, and run each of them through the SPLADE algorithm. This essentially generates a sparse representation of what could be conceptually thought of as a very large `m` by `n` matrix, where `m` is the number of passages, and `n` is the number of words in the BERT vocabulary, in this case, 30522, and each entry is the score of the word for the corresponding passage.<br>Even though this is conceptually a very large matrix, for fast retrieval, in practice, it is persisted on disk in a columnar, sparse fashion. More specific	ally, the data consists of a number of keys, with each key being a word in the vocabulary space. Inside each key, 2 arrays respectively representing which passages contain this word, and what their corresponding scores are, are stored.<br>For the online retrieval process, when a query comes in, it also goes through the SPLADE algorithm to obtain the words and weightings. Then we iterate through the words that are relevant to the query and accumulate the scores for each passage. This process is mathematically equivalent to multiplying the overall index matrix by the SPLADE representation of the query.<br>Once we obtain the scores of each passage relative to the given query, we do a partial rank, and provide the top results. These are exactly the top results returned for this query, completing the information retrieval process.
+        </p>
+        <h5 class="w3-center">Evaluation Metrics</h5>
+        <p class="w3-large"> There are a few dimensions along which an information retrieval algorithm is typically evaluated on.
+           <br> <br>  &emsp; &bull; <b>Mean Reciprocal Rank:</b> This represents how high up, on average, the ground truth relevant results are ranked by the algorithm.
+           <br> &emsp; &bull; <b>Recall@1000:</b> This represents the percentage of times the relevant passages (out of many more irrelevant ones) are included in the top 1000 results at all
+           <br> &emsp; &bull; <b>Retrieval Time:</b> This represents how fast the algorithm is able to generate the results for a given query
+            <br><br> For our project, our goal is to improve Retrieval Time of the SPLADE algorithm with minimum sacrifice on the other accuracy metrics.
+        </p>
+       </div>
+    </div>
   </div>
-  </div>
+
+  <hr>
   
   <hr>
   
@@ -149,11 +187,20 @@ h1, h2, h3, h4, h5, h6 {
         Concretely, our retrieval algorithm is as follows:
         <br>
         <ul>
-            <li>In addition to having a sparse index in the vocabulary space (BOW) for each passage, also use a pre-trained topic model to generate a sparse index which contains a topic score for each passage over the fixed topics (there are 19 of them).</li>
-            <li>Given an incoming query, use the same model to score this query against the same topics</li>
-            <li>Trim the topic vector of this query so only scores above a QUERY_THRESHOLD remain, and other topics will be set to 0. This makes the topic vector sparse.</li>
-            <li>Load the topic scores of all passages in memory, then trim them as well, so only scores above PASSAGE_THRESHOLD remain, the other entries will be set to 0. This makes the passage topic vectors sparse too.</li>
-            <li>As part of the SPLADE process, when scoring the passages for each query, consider if the query has any overlap of topics with the passage. If not, directly eliminate this passage from consideration and exclude this passage from the ranking stage. If yes, multiply the SPLADE score by the dot product (or cosine similarity) between the topic vectors of the query and the passage. As a result, passages that have a larger overlap with the query will get a higher score.</li>
+          <li> In addition to having a sparse index in the vocabulary space for each passage, also use a pre-trained topic model to generate a sparse index which contains a topic score for each passage over the fixed topics (there are 19 of them).</li>
+          <li> Given an incoming query, use the same model to score this query against the same topics</li>
+          
+          <li> Trim the topic vector of this query so only scores above a QUERY_THRESHOLD remain, and other topics will be set to 0. This makes the topic vector sparse.</li>
+          
+          <li> Alternative to 3, is to trim the topic vector of this query so only top k topics are kept, which results in a similar sparse topic vector</li>
+          
+          <li> Load the topic scores of all passages in memory, then trim them as well, so only scores above PASSAGE_THRESHOLD remain, the other entries will be set to 0. This makes the passage topic vectors sparse too.</li>
+          
+          <li> Similarly, alternative to 5, we can keep only the top m entries in each passage topic scores too</li>
+          
+          <li> As part of the SPLADE process, when scoring the passages for each query, consider if the query has any overlap of topics with the passage. If not, directly eliminate this passage from consideration and exclude this passage from the ranking stage.</li>
+          
+          <li> If yes, we could either weigh SPLADE score by the dot product (or cosine similarity) between the topic vectors of the query and the passage, or simply use the SPLADE score directly. The former will give passages that have a strong topic overlap with the query a higher weighting, and serve as another distinguishing factor between passages, however the latter will be significantly faster, since it removes the computation of the doc products.</li>
         </ul>
         </p>
 
@@ -194,10 +241,18 @@ h1, h2, h3, h4, h5, h6 {
     </div>
 
     <div class="w3-col m6 w3-padding-large">
-        <div class="test">
+        <div class="test2">
       <h1 class="w3-center">The Data</h1><br>
       <h5 class="w3-center">MSMARCO</h5>
-      <p class="w3-large">For our project we leveraged the MS MARCO dataset consisting of 1,010,916 anonymised questions sampled from Bing’s search query logs as well as 8,841,823 passages extracted from 353,535 web documents. A query is a string that is inputted into the search bar. Through EDA we discovered that the number of words in a query ranges from 5 to 12 and mostly falls between 5 to 7 words. The passage is ideally a relevant result that is outputted after the query is inputted. From EDA we found that passages range from 0 to 1000 characters and are generally between ~230 to ~260 characters.</p>
+      <p class="w3-large">For our experiments, we use the MS MARCO open dataset, specifically its full validation set to evaluate our algorithms performances.
+        <br>
+        MS MARCO is an open dataset from Microsoft that was generated from real life Bing searches. Its full validation set consists of 1600 queries, and 276,142 passages to retrieve from. For each query, 1-3 passages have been manually determined as relevant, which is used as the ground truth for calculating the accuracy metrics such as MRR and Recall.
+        <br>
+        Our algorithm is based on a pre-trained flavor of SPLADE available on Huggingface as naver/splade-cocondenser-ensembledistil. We did not retrain the SPLADE model in any way, and only tuned its indexing and retrieval processes.
+        <br>
+        For the topic based approach, we used a pre-trained classifier (hf: cardiffnlp/tweet-topic-21-multi) to classify the topic of all the passages and queries.
+        <br>
+        The topic classification of passages are pre-computed offline using a large notebook instance (ml.c5d.9xlarge), while the retrieval experiments were all carried out in a ml.c5d.2xlarge instance.</p>
     </div>
     </div>
   </div>
@@ -208,7 +263,15 @@ h1, h2, h3, h4, h5, h6 {
   <div class="w3-row w3-padding-64" id="results">
     </div>
       <h1 class="w3-center">Results</h1><br>
-      <p class="w3-center">Results to be Reported For Each Approach:  Total retrieval time, MRR@10 and Recall@20.</p>
+      <h5 class="w3-center">Topic Based Approach</h5>
+      <p class="w3-center">As described in the previous section, there are a number of parameters that lead to different configurations of the retrieval algorithm. Notably:</p>
+    <p>
+      &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &bull; Query Topic Filter Threshold: If less than 1, the topic score of the query is set to 0 if below the threshold. If greater than 1, this is the number of top topics to remain in the query topic vector.<br>
+      &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &bull; Passage Topic Filter Threshold: If less than 1, the topic score of the passage is set to 0 if below the threshold. If greater than 1, this is the number of top topics to remain in the passage topic vector.<br>
+      &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &bull; Final Score Filter Threshold: When retrieving passages for a given query, the pair’s relevance score is determined by the dot product of their SPLADE vectors. If the final relevance score is below the threshold, it’s set to 0 and does not enter the passage ranking.<br>
+      &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &bull; Weighed by Topic Overlap: A true/false configuration that determines whether the relevance scores calculated by SPLADE gets weighted by the topic overlap of the passage and the query too.
+    </p>
+    <p class="w3-center">With a large number of possible configurations, we’ve taken a manually guided approach and tried a number of combinations as we aim to optimize for the retrieval time with minimum impact on accuracy. Below is the full set of results of all experiments we conducted, ranked by accuracy (MRR and Recall@1000) in descending order.</p>
     </div>
    </div>
    
@@ -220,7 +283,7 @@ h1, h2, h3, h4, h5, h6 {
 
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-32">
-  <p>Last Updated 03/13/2023</p>
+  <p>Last Updated 04/10/2023</p>
 </footer>
 
 </body>
