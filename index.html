@@ -7,10 +7,12 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
 body {font-family: "Times New Roman", Georgia, Serif;}
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h4, h5 {
   font-family: "Playfair Display";
   letter-spacing: 5px;
 }
+
+
 .test{
     padding: 20px 25px;
     border-radius: 5px;
@@ -20,6 +22,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px 25px;
     border-radius: 5px;
     background-color: #b0dbbf96;
+}
+.test3{
+    padding: 20px 25px;
+    background-color: rgb(255, 235, 190);
 }
 .column {
   float: left;
@@ -31,6 +37,20 @@ h1, h2, h3, h4, h5, h6 {
   content: "";
   display: table;
   clear: both;
+}
+.button2 {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: rgb(255, 224, 150);
+  border: none;
+  border-radius: 15px;
+  transition-duration: 0.4s;
 }
 
 
@@ -50,6 +70,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .button:hover {background-color: #75a7f5}
+.button2:hover {background-color: rgb(255, 235, 190)}
+
 
 .text-center {
   text-align: center;
@@ -71,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
       <a href="#team" class="w3-bar-item w3-button">Team</a>
       <a href="#about" class="w3-bar-item w3-button">About</a>
       <a href="#metrics" class="w3-bar-item w3-button">E2E & Metrics</a>
-      <a href="#approach" class="w3-bar-item w3-button">Approach</a>
+      <a href="#approach" class="w3-bar-item w3-button">Approaches</a>
       <a href="#data" class="w3-bar-item w3-button">Data</a>
       <a href="#results" class="w3-bar-item w3-button">Results</a>
     </div>
@@ -113,7 +135,6 @@ h1, h2, h3, h4, h5, h6 {
   <br>
   <br>
   <br>
-  <br>
   <hr>
 
   <!-- About Section -->
@@ -123,19 +144,45 @@ h1, h2, h3, h4, h5, h6 {
     <div class="test">
       <h1 class="w3-center">About</h1><br>
       <h5 class="w3-center">What is Neural Information Retrieval?</h5>
-      <p class="w3-large">Information retrieval is a tool that almost everyone is familiar with. If you have ever used a search engine (Google, Bing, Amazon, Online Store search etc.) then you have used information retrieval. Google’s Search statistics show that there are over 8.5 billion searches over a day. Search engines play a large role in everyone’s day to day life, whether it is for school, work, or need of a quick answer, we are constantly online making search requests. Any incremental improvements in the search algorithm can have a significant impact on the daily lives of millions of people.</p>
+      <p class="w3-large">
+        Information retrieval is a tool that almost everyone is familiar with. If you have ever used a search engine (Google, Bing, Amazon, Online Store search etc.) 
+        then you have used information retrieval. Google’s Search statistics show that there are over 8.5 billion searches over a day. Search engines play a large role 
+        in everyone’s day to day life, whether it is for school, work, or need of a quick answer, we are constantly online making search requests. With the increasing 
+        demand for computational power, the energy consumption of computers has also increased significantly. Therefore, it is important to find ways to reduce energy 
+        consumption while maintaining or increasing computational power. Saving even a small amount of energy can make a significant difference when considering the 
+        billions of computations performed daily. Our goal is to improve search engines by decreasing the time in the retrieval process to reduce energy consumption.
+      </p>
       <h5 class="w3-center">The Problem Setup</h5>
-      <p class="w3-large">Formally, the goal of Information Retrieval is, given a specific text <b>query</b>, retrieve a set of pre-existing text <b>documents</b> (or used interchangeably, <b>passages</b> ) that are most <b>relevant</b> to the given query. There is a long history of research on this problem, with techniques ranging from pure linguistics to utilizing neural networks in recent times. One of the cutting-edge algorithms today is SPLADE, which will be the baseline our project attempts to improve on.</p>
+      <p class="w3-large">
+        Formally, the goal of Information Retrieval is, given a specific text <b>query</b>, retrieve a set of pre-existing text 
+        <b>documents</b> (or used interchangeably, <b>passages</b> ) that are most <b>relevant</b> to the given query. There is a long history of 
+        research on this problem, with techniques ranging from pure linguistics to utilizing neural networks in recent times. One of the cutting-edge 
+        algorithms today is SPLADE, which will be the baseline our project attempts to improve on.
+      </p>
       <h5 class="w3-center">What is SPLADE?</h5>
-      <p class="w3-large">SPLADE stands for Sparse Lexical AnD Expansion Model. It is part of a family of algorithms based on the “Bag of Words” model of text, but also contains term expansion capabilities. <br> At a high level, SPLADE trains a model based on a Language Model called BERT with the goal of taking any text input, and generates a numeric vector in its vocabulary space (30522 dimensional), with each entry representing a relevance score of the corresponding word for the given text. <br>As a concrete example, consider the query “what is a car”. Using the plain bag-of-words representation, the output would be an all-zero vector of 30522 dimensions, except a 1 for the words “what”, “is”, “a”, and “car”. The problem with this naive approach is that, all documents that do not contain any of these 4 words will never be retrieved, even though they could be relevant (e.g. it uses the word “vehicle”). <br>SPLADE is essentially a more advanced version of this process, but has the ability to assign non-zero scores to words that are not in the original text. In this example, SPLADE would generate an output that assigns the word “car” a score of 2.84, “cars” 2.19, “vehicle” 1.25, etc. Even words such as “science” and “technology” received non-zero scores.</p>
+      <p class="w3-large">
+        SPLADE stands for Sparse Lexical AnD Expansion Model. It is part of a family of algorithms based on the “Bag of Words” model of text, but also contains term expansion 
+        capabilities. <br> At a high level, SPLADE trains a model based on a Language Model called BERT with the goal of taking any text input, and generates a numeric vector 
+        in its vocabulary space (30522 dimensional), with each entry representing a relevance score of the corresponding word for the given text. <br>As a concrete example, 
+        consider the query “what is a car”. Using the plain bag-of-words representation, the output would be an all-zero vector of 30522 dimensions, except a 1 for the 
+        words “what”, “is”, “a”, and “car”. The problem with this naive approach is that, all documents that do not contain any of these 4 words will never be retrieved, 
+        even though they could be relevant (e.g. it uses the word “vehicle”). <br>SPLADE is essentially a more advanced version of this process, but has the ability to 
+        assign non-zero scores to words that are not in the original text. In this example, SPLADE would generate an output that assigns the word “car” a score of 2.84, 
+        “cars” 2.19, “vehicle” 1.25, etc. Even words such as “science” and “technology” received non-zero scores.
+      </p>
     </div>
     </div>
 
     <div class="w3-col m6 w3-padding-large">
-      <br>
-      <br> <br>
-      <br>
-   <img src="splade.jpg" class="w3-round w3-image" alt="Table Setting" width="800" height="1000">
+
+    <a href="https://www.wordstream.com/seo">
+      <button type="button">
+        <img src="seo.jpg" class="w3-round w3-image" alt="Table Setting" width="800" height="1000">
+      </button>
+    </a>
+
+        <br><br><br>
+      <img src="splade.jpg" class="w3-round w3-image" alt="Table Setting" width="800" height="1000">
    </div>
 
   </div>
@@ -177,54 +224,43 @@ h1, h2, h3, h4, h5, h6 {
   <!-- Approach Section -->
   <div class="w3-row w3-padding-64" id="approach">
     <div class="w3-col l6 w3-padding-large">
-        <div class="test">
+      <div class="test">
       <h1 class="w3-center">Our Approach</h1><br>
       <p>In the original SPLADE information retrieval (IR) system, the SPLADE generated query and document embedding similarity scores are exhaustively calculated. That is for Q queries and D documents, we generate QxD similarities. Our approaches center around improving the search component of the IR system by reducing the number of Query-Document similarity calculations computed at inference time.
         </p>
     <h4>Topic-Based Approach</h4>
-    <p>The high level idea here is to apply a faster filter to passages during document retrieval based on its topic, before it gets ranked along with all the passages. This insight comes from the observation that typically a query only falls within the realm of a small number of topics (e.g. sports, or history), and as a result, there are a large number of passages that can be filtered out purely based on its topic and does not need to enter the ranking stage of retrieval, since even if their score is 0, it still contributes to the time complexity of the ranking algorithm. As a result, our hypothesis is that it will make retrieval faster, especially when there are a large number of passages to retrieve from.
-        <br>
-        Concretely, our retrieval algorithm is as follows:
-        <br>
-        <ul>
-          <li> In addition to having a sparse index in the vocabulary space for each passage, also use a pre-trained topic model to generate a sparse index which contains a topic score for each passage over the fixed topics (there are 19 of them).</li>
-          <li> Given an incoming query, use the same model to score this query against the same topics</li>
-          
-          <li> Trim the topic vector of this query so only scores above a QUERY_THRESHOLD remain, and other topics will be set to 0. This makes the topic vector sparse.</li>
-          
-          <li> Alternative to 3, is to trim the topic vector of this query so only top k topics are kept, which results in a similar sparse topic vector</li>
-          
-          <li> Load the topic scores of all passages in memory, then trim them as well, so only scores above PASSAGE_THRESHOLD remain, the other entries will be set to 0. This makes the passage topic vectors sparse too.</li>
-          
-          <li> Similarly, alternative to 5, we can keep only the top m entries in each passage topic scores too</li>
-          
-          <li> As part of the SPLADE process, when scoring the passages for each query, consider if the query has any overlap of topics with the passage. If not, directly eliminate this passage from consideration and exclude this passage from the ranking stage.</li>
-          
-          <li> If yes, we could either weigh SPLADE score by the dot product (or cosine similarity) between the topic vectors of the query and the passage, or simply use the SPLADE score directly. The former will give passages that have a strong topic overlap with the query a higher weighting, and serve as another distinguishing factor between passages, however the latter will be significantly faster, since it removes the computation of the doc products.</li>
-        </ul>
+    <p>The high level idea here is to apply a faster filter to passages during document retrieval based on its topic, before it gets ranked along with all the passages. This insight comes from the observation that typically a query only falls within the realm of a small number of topics (e.g. sports, or history), and as a result, there are a large number of passages that can be filtered out purely based on its topic and does not need to enter the ranking stage of retrieval, since even if their score is 0, it still contributes to the time complexity of the ranking algorithm. As a result,
+       our hypothesis is that it will make retrieval faster, especially when there are a large number of passages to retrieve from.
         </p>
 
-        <h4>Binary Tree Approach</h4>
-    <p>  We have the SPLADE generated weights for each term in the BERT embedding space (about 35,000 terms) for each document. So for each document we have a 35000 length 1-D vector.
-        With no pre-sorting, we can recursively split the documents into groups, effectively making a binary tree. At each node, we take all documents in the subtree and calculate an aggregate metric for each term in the embedding space. We found better results using the max than using the average of the SPLADE generated term weights.
-        <br>
-        <br>
-        At inference time, when a query is supplied, rather than compared against all available documents, we calculate the similarity of the query to the aggregate document embedding at each node in the tree. We then follow the path of the tree with the higher similarity score. We can parameterize the number of documents returned by setting a predetermined depth of the tree or counting the number of leaf nodes available in the subtree.
-        <br>
-        <br>
-        We find this approach to have compelling results based on preliminary MRR@10 scores and the potential to greatly improve the retrieval efficiency of the IR system.
-        <br>
-        <br>
-        We are actively developing this approach, researching pre-sorting of the documents by similarity through hierarchical clustering and topic classification.
-        </p>
+    <h4>Tree Based Approaches</h4>
+    <p>  
+          To vastly improve search time we employed a number of clustering methods. By first comparing an incoming query with a representation of a cluster of passages, we will be able to reduce the number of passages evaluated for similarity to the query.
+
+          Our tree-based approaches followed a similar pattern to that of the topic filtering. In all cases, we first train a clustering model on the passages offline. At retrieval time we infer the cluster of the incoming query and use the stored passage cluster assignment to gather a specified number of similar passages based on that query cluster assignment. Next we go through the normal retrieval process using the inverted index adding an additional filtering step based on passage inclusion in the retrieved passage set from the cluster model. Only the coincident subset of passages from both the clustering model and the inverted index are then used in calculating the similarity scores.
+          
+    </p>
+
+    <h4>Query Reduction Approach</h4>
+    <p>  
+      This is our simplest approach to improving retrieval efficiency. This invovles reducing the size of the query.     
+    </p>
+
     </div>
     </div>
     
     <div class="w3-col l6 w3-padding-large">
-        <img src="topic.jpg" class="w3-round w3-image"  alt="Table Setting" width="700" height="770">
-        <br>
-        <br>
-        <img src="binary.jpg" class="w3-round w3-image"  alt="Table Setting" width="700" height="770">
+      <div class="test3">
+      <h1 class="w3-center">For more information on each approach select the links below and view the experiments and results done for each approach.</h1>
+    </div>
+      <br>
+      <h4 class="text-center"><a href="topic.html" class="button2">Topic Based Approach</a></h4>
+      <br><br>
+      <h4 class="text-center"><a href="binary.html" class="button2">Binary Tree Approach</a></h4>
+      <br><br>
+      <h4 class="text-center"><a href="annoy.html" class="button2">Annoy Tree Approach</a></h4>
+      <br><br>
+      <h4 class="text-center"><a href="query.html" class="button2">Query Reduction Approach</a></h4>
     </div>
   </div>
 
@@ -261,19 +297,13 @@ h1, h2, h3, h4, h5, h6 {
 
   <!-- Results Section -->
   <div class="w3-row w3-padding-64" id="results">
-    </div>
-      <h1 class="w3-center">Results</h1><br>
-      <h5 class="w3-center">Topic Based Approach</h5>
-      <p class="w3-center">As described in the previous section, there are a number of parameters that lead to different configurations of the retrieval algorithm. Notably:</p>
-    <p>
-      &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &bull; Query Topic Filter Threshold: If less than 1, the topic score of the query is set to 0 if below the threshold. If greater than 1, this is the number of top topics to remain in the query topic vector.<br>
-      &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &bull; Passage Topic Filter Threshold: If less than 1, the topic score of the passage is set to 0 if below the threshold. If greater than 1, this is the number of top topics to remain in the passage topic vector.<br>
-      &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &bull; Final Score Filter Threshold: When retrieving passages for a given query, the pair’s relevance score is determined by the dot product of their SPLADE vectors. If the final relevance score is below the threshold, it’s set to 0 and does not enter the passage ranking.<br>
-      &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &bull; Weighed by Topic Overlap: A true/false configuration that determines whether the relevance scores calculated by SPLADE gets weighted by the topic overlap of the passage and the query too.
-    </p>
-    <p class="w3-center">With a large number of possible configurations, we’ve taken a manually guided approach and tried a number of combinations as we aim to optimize for the retrieval time with minimum impact on accuracy. Below is the full set of results of all experiments we conducted, ranked by accuracy (MRR and Recall@1000) in descending order.</p>
-    </div>
-   </div>
+      <h1 class="w3-center">Top 2 Performing Results</h1><br>
+      <p class="w3-center" style="padding-left: 200px; padding-right: 200px; font-size: 24px;">
+        The goal of our project was to reduce the retrieval time of neural information retrieval and we successfully did that while also maintaining
+         MRR@10 and Recall@1000!  The best performing approach was the Query Reduction Approach and we were able to reduce it by 121 sec or 2 min. 
+      </p>
+      <img src="finalresults.jpg" class="w3-round w3-image" alt="Table Setting" width="1500" height="650">
+  </div>
    
 
   <hr>
@@ -283,7 +313,7 @@ h1, h2, h3, h4, h5, h6 {
 
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-32">
-  <p>Last Updated 04/10/2023</p>
+  <p>Last Updated 04/16/2023</p>
 </footer>
 
 </body>

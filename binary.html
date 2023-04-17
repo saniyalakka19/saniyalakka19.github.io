@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Neural Information Retrieval</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+
+
+.test{
+    padding: 20px 25px;
+    border-radius: 5px;
+    background-color: #b8d2fa;
+}
+.test2{
+    padding: 20px 25px;
+    border-radius: 5px;
+    background-color: #b0dbbf96;
+}
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: #b8d2fa;
+  border: none;
+  border-radius: 15px;
+  transition-duration: 0.4s;
+}
+
+.button:hover {background-color: #75a7f5}
+
+.text-center {
+  text-align: center;
+}
+.head{
+    color: white;
+}
+
+</style>
+</head>
+<body>
+    <!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+      <a href="#home" class="w3-bar-item w3-button" style="letter-spacing:4px; background-color: #b8d2fa;">University of California Berkeley Capstone</a>
+      <!-- Right-sided navbar links. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+        <a href="index.html" class="w3-bar-item w3-button"  style="letter-spacing:4px; background-color: #8bdca7;">Home</a>
+        <a href="#approach" class="w3-bar-item w3-button" style="letter-spacing:4px; background-color: #8bdca7;">Approach</a>
+        <a href="#results" class="w3-bar-item w3-button" style="letter-spacing:4px; background-color: #8bdca7;">Results</a>
+      </div>
+    </div>
+</div>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width: 2100px">
+  
+  <!-- Approach Section -->
+  <div class="w3-row w3-padding-64" id="approach">
+    <div class="w3-col l6 w3-padding-large">
+        <div class="test">
+      <h1 class="w3-center">Binary Tree Approach</h1><br>
+         <p>
+            Naive Ordering: <br><br>
+            Unfortunately, although somewhat expectedly, the Binary Tree with the Naively Ordered (unsorted) underlying array performed very poorly 
+            on MRR and Recall metrics. However, the retrieval time was significantly faster than the baseline, showing some promise as a means of improving efficiency. <br><br>
+
+            Heirarchical Odering: <br><br>
+            The underlying array for this Binary Tree requires clustering and sorting steps. The storage requirements for this sorting 
+            proved to be too great for our resources, despite a modestly sized validation subset. To get around this limitation, we used a 
+            smaller subset of passages and queries from our validation set. While we can compare the performance of the Binary Tree with 
+            Hierarchical Ordering to the Baseline, it is not directly comparable to other approaches. <br>
+
+            Because of the reduced size of the underlying array, the size of the resultant tree is much smaller, and has fewer levels to
+            experiment with. Therefore, we have a single experiment to report. <br>
+
+            As seen in the results table, the Hierarchical Ordering approach yielded promising results. Although the retrieval time was not 
+            competitive with that of the baseline, there is room for improvement in our implementation. Coupled with the outperformance in MRR@10 and 
+            Recall@1000, this may be a reasonable approach. <br>
+
+        </p>
+    </div>
+    </div>
+    
+    <div class="w3-col l6 w3-padding-large">
+        <img src="tree.jpg" class="w3-round w3-image"  alt="Table Setting" width="800" height="800">
+
+    </div>
+  </div>
+    <!-- Results Section -->
+    <div class="w3-row w3-padding-64" id="results">
+    </div>
+      <h1 class="w3-center">Experiments and Results</h1>
+  </div>
+    <!-- Data Section -->
+    <div class="w3-row w3-padding-64" id="results">
+        <div class="w3-col m6 w3-padding-large w3-hide-small">
+
+        <img src="binaryresult.jpg" class="w3-round w3-image" alt="Table Setting" width="800" height="950">
+        </div>
+    
+        <div class="w3-col m6 w3-padding-large">
+            <img src="heirresult.jpg" class="w3-round w3-image" alt="Table Setting" width="800" height="950">
+        </div>
+      </div>
+

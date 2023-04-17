@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Neural Information Retrieval</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+
+
+.test{
+    padding: 20px 25px;
+    border-radius: 5px;
+    background-color: #b8d2fa;
+}
+.test2{
+    padding: 20px 25px;
+    border-radius: 5px;
+    background-color: #b0dbbf96;
+}
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: #b8d2fa;
+  border: none;
+  border-radius: 15px;
+  transition-duration: 0.4s;
+}
+
+.button:hover {background-color: #75a7f5}
+
+.text-center {
+  text-align: center;
+}
+.head{
+    color: white;
+}
+
+</style>
+</head>
+<body>
+    <!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+      <a href="#home" class="w3-bar-item w3-button" style="letter-spacing:4px; background-color: #b8d2fa;">University of California Berkeley Capstone</a>
+      <!-- Right-sided navbar links. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+        <a href="index.html" class="w3-bar-item w3-button"  style="letter-spacing:4px; background-color: #8bdca7;">Home</a>
+        <a href="#approach" class="w3-bar-item w3-button" style="letter-spacing:4px; background-color: #8bdca7;">Approach</a>
+        <a href="#results" class="w3-bar-item w3-button" style="letter-spacing:4px; background-color: #8bdca7;">Results</a>
+      </div>
+    </div>
+</div>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width: 2100px">
+  
+  <!-- Approach Section -->
+  <div class="w3-row w3-padding-64" id="approach">
+    <div class="w3-col l6 w3-padding-large">
+        <div class="test">
+      <h1 class="w3-center">Query Reduction Approach</h1><br>
+         <p>
+            Our simplest approach turned out to be our most effective. By removing the less important query terms, we are amplifying the effects of the SPLADE 
+            log-saturated weighting. That is, we are making the most important terms even more important in determining the relevance of candidate passages. 
+            On top of that, this best leverages the existing inverted index and search approach. So there’s very little work required to implement it. <br> <br>
+
+            The best version of this is probably reducing the SPLADE Terms down to ⅕ its original size. Although reducing down to ½ has virtually no effect on the 
+            quality of the results, while significantly speeding up retrieval time.
+            
+
+        </p>
+    </div>
+    </div>
+    
+    <div class="w3-col l6 w3-padding-large">
+        <img src="query.jpg" class="w3-round w3-image"  alt="Table Setting" width="800" height="800">
+
+    </div>
+  </div>
+    <!-- Results Section -->
+    <div class="w3-row w3-padding-64" id="results">
+    </div>
+      <h1 class="w3-center">Experiments and Results</h1>
+  </div>
+    <!-- Data Section -->
+    <div class="w3-row w3-padding-64" id="results">
+        <div class="w3-col m6 w3-padding-large w3-hide-small">
+
+        <img src="queryresult1.jpg" class="w3-round w3-image" alt="Table Setting" width="800" height="950">
+        </div>
+    
+        <div class="w3-col m6 w3-padding-large">
+            <img src="queryresult2.jpg" class="w3-round w3-image" alt="Table Setting" width="800" height="950">
+        </div>
+      </div>
+
