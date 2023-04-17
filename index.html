@@ -1,138 +1,155 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Neural Information Retrieval</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<style>
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  letter-spacing: 1px;
-}
-h1, h2, h4, h5 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  letter-spacing: 5px;
-}
+  <title>Neural Information Retrieval</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    h1,
+    h2,
+    h4,
+    h5 {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      letter-spacing: 5px;
+    }
 
 
-.test{
-    padding: 20px 25px;
-    border-radius: 5px;
-    background-color: #b8d2fa;
-}
-.test2{
-    padding: 20px 25px;
-    border-radius: 5px;
-    background-color: #b0dbbf96;
-}
-.test3{
-    padding: 20px 25px;
-    background-color: #639df5;
-}
-.column {
-  float: left;
-  width: 33.33%;
-}
+    .test {
+      padding: 20px 25px;
+      border-radius: 5px;
+      background-color: #b8d2fa;
+    }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.button2 {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: black;
-  background-color: rgb(255, 224, 150);
-  border: none;
-  border-radius: 15px;
-  transition-duration: 0.4s;
-}
+    .test2 {
+      padding: 20px 25px;
+      border-radius: 5px;
+      background-color: #b0dbbf96;
+    }
 
+    .test3 {
+      padding: 20px 25px;
+      background-color: #639df5;
+    }
 
-.button {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: black;
-  background-color: #b8d2fa;
-  border: none;
-  border-radius: 15px;
-  transition-duration: 0.4s;
-}
+    .column {
+      float: left;
+      width: 33.33%;
+    }
 
-.button:hover {background-color: #75a7f5}
-.button2:hover {background-color: rgb(255, 235, 190)}
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .button2 {
+      display: inline-block;
+      padding: 15px 25px;
+      font-size: 24px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: black;
+      background-color: rgb(255, 224, 150);
+      border: none;
+      border-radius: 15px;
+      transition-duration: 0.4s;
+    }
 
 
-.text-center {
-  text-align: center;
-}
-.head{
-    color: white;
-}
+    .button {
+      display: inline-block;
+      padding: 15px 25px;
+      font-size: 24px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: black;
+      background-color: #b8d2fa;
+      border: none;
+      border-radius: 15px;
+      transition-duration: 0.4s;
+    }
 
-</style>
+    .button:hover {
+      background-color: #75a7f5
+    }
+
+    .button2:hover {
+      background-color: rgb(255, 235, 190)
+    }
+
+
+    .text-center {
+      text-align: center;
+    }
+
+    .head {
+      color: white;
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-    <a href="#home" class="w3-bar-item w3-button">University of California Berkeley Capstone</a>
-    <!-- Right-sided navbar links. Hide them on small screens -->
-    <div class="w3-right w3-hide-small">
-      <a href="#team" class="w3-bar-item w3-button">TEAM</a>
-      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-      <a href="#metrics" class="w3-bar-item w3-button">E2E & METRICS</a>
-      <a href="#approach" class="w3-bar-item w3-button">APPROACHES</a>
-      <a href="#data" class="w3-bar-item w3-button">DATA</a>
-      <a href="#results" class="w3-bar-item w3-button">RESULTS</a>
-    </div>
-  </div>
-</div>
-
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-  <img class="w3-image" src="header.jpg" alt="Hamburger Catering" width="1600" height="800">
-  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
-    <h2 class="head"> With SPLADE</h2>
-  </div>
-</header>
-
-<!-- Page content -->
-<div class="w3-content" style="max-width:1100px">
-
-  <!-- Team Section -->
-  <div class="w3-row w3-padding-64" id="team">
-    </div>
-      <h1 class="w3-center">The Team</h1><br>
-      <div class="row" id="test1">
-        <div class="column">
-            <img class="text-center" src="saniya.jpg" alt="Hamburger Catering" width="400" height="400">
-            <h4 class="text-center"><a href="https://www.linkedin.com/in/saniya-lakka-863289160/" class="button">Saniya Lakka</a></h4>
-        </div>
-        <div class="column">
-            <img class="text-center" src="nicholas.jpg" alt="Hamburger Catering" width="400" height="400">
-            <h4 class="text-center"><a href="https://www.linkedin.com/in/nicholas-schantz/" class="button">Nicholas Schantz</a></h4>
-        </div>
-        <div class="column">
-            <img class="text-center" src="yi.jpg" alt="Hamburger Catering" width="400" height="400">
-            <h4 class="text-center"><a href="https://www.linkedin.com/in/yizhang7210/" class="button">Yi Zhang</a></h4>
-        </div>
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+      <a href="#home" class="w3-bar-item w3-button">University of California Berkeley Capstone</a>
+      <!-- Right-sided navbar links. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+        <a href="#team" class="w3-bar-item w3-button">TEAM</a>
+        <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+        <a href="#metrics" class="w3-bar-item w3-button">E2E & METRICS</a>
+        <a href="#approach" class="w3-bar-item w3-button">APPROACHES</a>
+        <a href="#data" class="w3-bar-item w3-button">DATA</a>
+        <a href="#results" class="w3-bar-item w3-button">RESULTS</a>
       </div>
     </div>
+  </div>
+
+  <!-- Header -->
+  <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+    <img class="w3-image" src="header.jpg" alt="Hamburger Catering" width="1600" height="800">
+    <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+      <h2 class="head"> With SPLADE</h2>
+    </div>
+  </header>
+
+  <!-- Page content -->
+  <div class="w3-content" style="max-width:1100px">
+
+    <!-- Team Section -->
+    <div class="w3-row w3-padding-64" id="team">
+    </div>
+    <h1 class="w3-center">The Team</h1><br>
+    <div class="row" id="test1">
+      <div class="column">
+        <img class="text-center" src="saniya.jpg" alt="Hamburger Catering" width="400" height="400">
+        <h4 class="text-center"><a href="https://www.linkedin.com/in/saniya-lakka-863289160/" class="button">Saniya
+            Lakka</a></h4>
+      </div>
+      <div class="column">
+        <img class="text-center" src="nicholas.jpg" alt="Hamburger Catering" width="400" height="400">
+        <h4 class="text-center"><a href="https://www.linkedin.com/in/nicholas-schantz/" class="button">Nicholas
+            Schantz</a></h4>
+      </div>
+      <div class="column">
+        <img class="text-center" src="yi.jpg" alt="Hamburger Catering" width="400" height="400">
+        <h4 class="text-center"><a href="https://www.linkedin.com/in/yizhang7210/" class="button">Yi Zhang</a></h4>
+      </div>
+    </div>
+  </div>
   </div>
 
   <br>
@@ -144,118 +161,171 @@ h1, h2, h4, h5 {
   <div class="w3-row w3-padding-64" id="about">
 
     <div class="w3-col m6 w3-padding-large">
-    <div class="test">
-      <h1 class="w3-center">About</h1><br>
-      <h5 class="w3-center">What is Neural Information Retrieval?</h5>
-      <p class="w3-large">
-        Information retrieval is a tool that almost everyone is familiar with. If you have ever used a search engine (Google, Bing, Amazon, Online Store search etc.) 
-        then you have used information retrieval. Google’s Search statistics show that there are over 8.5 billion searches over a day. Search engines play a large role 
-        in everyone’s day to day life, whether it is for school, work, or need of a quick answer, we are constantly online making search requests. With the increasing 
-        demand for computational power, the energy consumption of computers has also increased significantly. Therefore, it is important to find ways to reduce energy 
-        consumption while maintaining or increasing computational power. Saving even a small amount of energy can make a significant difference when considering the 
-        billions of computations performed daily. Our goal is to improve search engines by decreasing the time in the retrieval process to reduce energy consumption.
-      </p>
-      <h5 class="w3-center">The Problem Setup</h5>
-      <p class="w3-large">
-        Formally, the goal of Information Retrieval is, given a specific text <b>query</b>, retrieve a set of pre-existing text 
-        <b>documents</b> (or used interchangeably, <b>passages</b> ) that are most <b>relevant</b> to the given query. There is a long history of 
-        research on this problem, with techniques ranging from pure linguistics to utilizing neural networks in recent times. One of the cutting-edge 
-        algorithms today is SPLADE, which will be the baseline our project attempts to improve on.
-      </p>
-      <h5 class="w3-center">What is SPLADE?</h5>
-      <p class="w3-large">
-        SPLADE stands for Sparse Lexical AnD Expansion Model. It is part of a family of algorithms based on the “Bag of Words” model of text, but also contains term expansion 
-        capabilities. <br> At a high level, SPLADE trains a model based on a Language Model called BERT with the goal of taking any text input, and generates a numeric vector 
-        in its vocabulary space (30522 dimensional), with each entry representing a relevance score of the corresponding word for the given text. <br>As a concrete example, 
-        consider the query “what is a car”. Using the plain bag-of-words representation, the output would be an all-zero vector of 30522 dimensions, except a 1 for the 
-        words “what”, “is”, “a”, and “car”. The problem with this naive approach is that, all documents that do not contain any of these 4 words will never be retrieved, 
-        even though they could be relevant (e.g. it uses the word “vehicle”). <br>SPLADE is essentially a more advanced version of this process, but has the ability to 
-        assign non-zero scores to words that are not in the original text. In this example, SPLADE would generate an output that assigns the word “car” a score of 2.84, 
-        “cars” 2.19, “vehicle” 1.25, etc. Even words such as “science” and “technology” received non-zero scores.
-      </p>
-    </div>
+      <div class="test">
+        <h1 class="w3-center">About</h1><br>
+        <h5 class="w3-center">What is Neural Information Retrieval?</h5>
+        <p class="w3-large">
+          Information retrieval is a tool that almost everyone is familiar with. If you have ever used a search engine
+          (Google, Bing, Amazon, Online Store search etc.)
+          then you have used information retrieval. Google’s Search statistics show that there are over 8.5 billion
+          searches over a day. Search engines play a large role
+          in everyone’s day to day life, whether it is for school, work, or need of a quick answer, we are constantly
+          online making search requests. With the increasing
+          demand for computational power, the energy consumption of computers has also increased significantly.
+          Therefore, it is important to find ways to reduce energy
+          consumption while maintaining or increasing computational power. Saving even a small amount of energy can make
+          a significant difference when considering the
+          billions of computations performed daily. Our goal is to improve search engines by decreasing the time in the
+          retrieval process to reduce energy consumption.
+        </p>
+        <h5 class="w3-center">The Problem Setup</h5>
+        <p class="w3-large">
+          Formally, the goal of Information Retrieval is, given a specific text <b>query</b>, retrieve a set of
+          pre-existing text
+          <b>documents</b> (or used interchangeably, <b>passages</b> ) that are most <b>relevant</b> to the given query.
+          There is a long history of
+          research on this problem, with techniques ranging from pure linguistics to utilizing neural networks in recent
+          times. One of the cutting-edge
+          algorithms today is SPLADE, which will be the baseline our project attempts to improve on.
+        </p>
+        <h5 class="w3-center">What is SPLADE?</h5>
+        <p class="w3-large">
+          SPLADE stands for Sparse Lexical AnD Expansion Model. It is part of a family of algorithms based on the “Bag
+          of Words” model of text, but also contains term expansion
+          capabilities. <br> At a high level, SPLADE trains a model based on a Language Model called BERT with the goal
+          of taking any text input, and generates a numeric vector
+          in its vocabulary space (30522 dimensional), with each entry representing a relevance score of the
+          corresponding word for the given text. <br>As a concrete example,
+          consider the query “what is a car”. Using the plain bag-of-words representation, the output would be an
+          all-zero vector of 30522 dimensions, except a 1 for the
+          words “what”, “is”, “a”, and “car”. The problem with this naive approach is that, all documents that do not
+          contain any of these 4 words will never be retrieved,
+          even though they could be relevant (e.g. it uses the word “vehicle”). <br>SPLADE is essentially a more
+          advanced version of this process, but has the ability to
+          assign non-zero scores to words that are not in the original text. In this example, SPLADE would generate an
+          output that assigns the word “car” a score of 2.84,
+          “cars” 2.19, “vehicle” 1.25, etc. Even words such as “science” and “technology” received non-zero scores.
+        </p>
+      </div>
     </div>
 
     <div class="w3-col m6 w3-padding-large">
 
-    <a href="https://www.wordstream.com/seo">
-      <button type="button">
-        <img src="seo.jpg" class="w3-round w3-image" alt="Table Setting" width="800" height="1000">
-      </button>
-    </a>
+      <a href="https://www.wordstream.com/seo">
+        <button type="button">
+          <img src="seo.jpg" class="w3-round w3-image" alt="Table Setting" width="800" height="1000">
+        </button>
+      </a>
 
-        <br><br><br>
+      <br><br><br>
       <img src="splade.jpg" class="w3-round w3-image" alt="Table Setting" width="800" height="1000">
-   </div>
+    </div>
 
   </div>
 
-     <!-- E2E & Metrics Section -->
+  <!-- E2E & Metrics Section -->
   <div class="w3-row w3-padding-64" id="metrics">
     <div class="w3-col m6 w3-padding-large w3-hide-small">
-        <br>
-        <br>
-        <br>
-        <br>
+      <br>
+      <br>
+      <br>
+      <br>
 
-    <img src="mrr.jpg" class="w3-round w3-image" alt="Table Setting" width="700" height="950">
-    <br><br><br><br><br><br><br><br><br>
-    <img src="recall.jpg" class="w3-round w3-image" alt="Table Setting" width="700" height="950">
+      <img src="mrr.jpg" class="w3-round w3-image" alt="Table Setting" width="700" height="950">
+      <br><br><br><br><br><br><br><br><br>
+      <img src="recall.jpg" class="w3-round w3-image" alt="Table Setting" width="700" height="950">
 
     </div>
 
     <div class="w3-col m6 w3-padding-large">
       <div class="test2">
         <h5 class="w3-center">The end-to-end Process</h5>
-        <p class="w3-large">SPLADE uses an inverted index for fast retrieval, as a result, the end to end process involves two stages: offline indexing, and online retrieval. <br>For offline indexing, we take all the candidate passages, and run each of them through the SPLADE algorithm. This essentially generates a sparse representation of what could be conceptually thought of as a very large `m` by `n` matrix, where `m` is the number of passages, and `n` is the number of words in the BERT vocabulary, in this case, 30522, and each entry is the score of the word for the corresponding passage.<br>Even though this is conceptually a very large matrix, for fast retrieval, in practice, it is persisted on disk in a columnar, sparse fashion. More specific	ally, the data consists of a number of keys, with each key being a word in the vocabulary space. Inside each key, 2 arrays respectively representing which passages contain this word, and what their corresponding scores are, are stored.<br>For the online retrieval process, when a query comes in, it also goes through the SPLADE algorithm to obtain the words and weightings. Then we iterate through the words that are relevant to the query and accumulate the scores for each passage. This process is mathematically equivalent to multiplying the overall index matrix by the SPLADE representation of the query.<br>Once we obtain the scores of each passage relative to the given query, we do a partial rank, and provide the top results. These are exactly the top results returned for this query, completing the information retrieval process.
+        <p class="w3-large">SPLADE uses an inverted index for fast retrieval, as a result, the end to end process
+          involves two stages: offline indexing, and online retrieval. <br>For offline indexing, we take all the
+          candidate passages, and run each of them through the SPLADE algorithm. This essentially generates a sparse
+          representation of what could be conceptually thought of as a very large `m` by `n` matrix, where `m` is the
+          number of passages, and `n` is the number of words in the BERT vocabulary, in this case, 30522, and each entry
+          is the score of the word for the corresponding passage.<br>Even though this is conceptually a very large
+          matrix, for fast retrieval, in practice, it is persisted on disk in a columnar, sparse fashion. More specific
+          ally, the data consists of a number of keys, with each key being a word in the vocabulary space. Inside each
+          key, 2 arrays respectively representing which passages contain this word, and what their corresponding scores
+          are, are stored.<br>For the online retrieval process, when a query comes in, it also goes through the SPLADE
+          algorithm to obtain the words and weightings. Then we iterate through the words that are relevant to the query
+          and accumulate the scores for each passage. This process is mathematically equivalent to multiplying the
+          overall index matrix by the SPLADE representation of the query.<br>Once we obtain the scores of each passage
+          relative to the given query, we do a partial rank, and provide the top results. These are exactly the top
+          results returned for this query, completing the information retrieval process.
         </p>
         <h5 class="w3-center">Evaluation Metrics</h5>
-        <p class="w3-large"> There are a few dimensions along which an information retrieval algorithm is typically evaluated on.
-           <br> <br>  &emsp; &bull; <b>Mean Reciprocal Rank:</b> This represents how high up, on average, the ground truth relevant results are ranked by the algorithm.
-           <br> &emsp; &bull; <b>Recall@1000:</b> This represents the percentage of times the relevant passages (out of many more irrelevant ones) are included in the top 1000 results at all
-           <br> &emsp; &bull; <b>Retrieval Time:</b> This represents how fast the algorithm is able to generate the results for a given query
-            <br><br> For our project, our goal is to improve Retrieval Time of the SPLADE algorithm with minimum sacrifice on the other accuracy metrics.
+        <p class="w3-large"> There are a few dimensions along which an information retrieval algorithm is typically
+          evaluated on.
+          <br> <br> &emsp; &bull; <b>Mean Reciprocal Rank:</b> This represents how high up, on average, the ground truth
+          relevant results are ranked by the algorithm.
+          <br> &emsp; &bull; <b>Recall@1000:</b> This represents the percentage of times the relevant passages (out of
+          many more irrelevant ones) are included in the top 1000 results at all
+          <br> &emsp; &bull; <b>Retrieval Time:</b> This represents how fast the algorithm is able to generate the
+          results for a given query
+          <br><br> For our project, our goal is to improve Retrieval Time of the SPLADE algorithm with minimum sacrifice
+          on the other accuracy metrics.
         </p>
-       </div>
+      </div>
     </div>
   </div>
 
   <hr>
-  
+
   <hr>
-  
+
   <!-- Approach Section -->
   <div class="w3-row w3-padding-64" id="approach">
     <div class="w3-col l6 w3-padding-large">
       <div class="test">
-      <h1 class="w3-center">Our Approach</h1><br>
-      <p>In the original SPLADE information retrieval (IR) system, the SPLADE generated query and document embedding similarity scores are exhaustively calculated. That is for Q queries and D documents, we generate QxD similarities. Our approaches center around improving the search component of the IR system by reducing the number of Query-Document similarity calculations computed at inference time.
+        <h1 class="w3-center">Our Approach</h1><br>
+        <p>In the original SPLADE information retrieval (IR) system, the SPLADE generated query and document embedding
+          similarity scores are exhaustively calculated. That is for Q queries and D documents, we generate QxD
+          similarities. Our approaches center around improving the search component of the IR system by reducing the
+          number of Query-Document similarity calculations computed at inference time.
         </p>
-    <h4>Topic-Based Approach</h4>
-    <p>The high level idea here is to apply a faster filter to passages during document retrieval based on its topic, before it gets ranked along with all the passages. This insight comes from the observation that typically a query only falls within the realm of a small number of topics (e.g. sports, or history), and as a result, there are a large number of passages that can be filtered out purely based on its topic and does not need to enter the ranking stage of retrieval, since even if their score is 0, it still contributes to the time complexity of the ranking algorithm. As a result,
-       our hypothesis is that it will make retrieval faster, especially when there are a large number of passages to retrieve from.
+        <h4>Topic-Based Approach</h4>
+        <p>The high level idea here is to apply a faster filter to passages during document retrieval based on its
+          topic, before it gets ranked along with all the passages. This insight comes from the observation that
+          typically a query only falls within the realm of a small number of topics (e.g. sports, or history), and as a
+          result, there are a large number of passages that can be filtered out purely based on its topic and does not
+          need to enter the ranking stage of retrieval, since even if their score is 0, it still contributes to the time
+          complexity of the ranking algorithm. As a result,
+          our hypothesis is that it will make retrieval faster, especially when there are a large number of passages to
+          retrieve from.
         </p>
 
-    <h4>Tree Based Approaches</h4>
-    <p>  
-          To vastly improve search time we employed a number of clustering methods. By first comparing an incoming query with a representation of a cluster of passages, we will be able to reduce the number of passages evaluated for similarity to the query.
+        <h4>Tree Based Approaches</h4>
+        <p>
+          To vastly improve search time we employed a number of clustering methods. By first comparing an incoming query
+          with a representation of a cluster of passages, we will be able to reduce the number of passages evaluated for
+          similarity to the query.
 
-          Our tree-based approaches followed a similar pattern to that of the topic filtering. In all cases, we first train a clustering model on the passages offline. At retrieval time we infer the cluster of the incoming query and use the stored passage cluster assignment to gather a specified number of similar passages based on that query cluster assignment. Next we go through the normal retrieval process using the inverted index adding an additional filtering step based on passage inclusion in the retrieved passage set from the cluster model. Only the coincident subset of passages from both the clustering model and the inverted index are then used in calculating the similarity scores.
-          
-    </p>
+          Our tree-based approaches followed a similar pattern to that of the topic filtering. In all cases, we first
+          train a clustering model on the passages offline. At retrieval time we infer the cluster of the incoming query
+          and use the stored passage cluster assignment to gather a specified number of similar passages based on that
+          query cluster assignment. Next we go through the normal retrieval process using the inverted index adding an
+          additional filtering step based on passage inclusion in the retrieved passage set from the cluster model. Only
+          the coincident subset of passages from both the clustering model and the inverted index are then used in
+          calculating the similarity scores.
 
-    <h4>Query Reduction Approach</h4>
-    <p>  
-      This is our simplest approach to improving retrieval efficiency. This invovles reducing the size of the query.     
-    </p>
+        </p>
 
+        <h4>Query Reduction Approach</h4>
+        <p>
+          This is our simplest approach to improving retrieval efficiency. This invovles reducing the size of the query.
+        </p>
+
+      </div>
     </div>
-    </div>
-    
+
     <div class="w3-col l6 w3-padding-large">
       <div class="test3">
-      <h1 class="w3-center">For more information on each approach select the links below and view the experiments and results done for each approach.</h1>
-    </div>
+        <h1 class="w3-center">For more information on each approach select the links below and view the experiments and
+          results done for each approach.</h1>
+      </div>
       <br>
       <h4 class="text-center"><a href="topic.html" class="button">Topic Based Approach</a></h4>
       <br><br>
@@ -271,28 +341,38 @@ h1, h2, h4, h5 {
   <!-- Data Section -->
   <div class="w3-row w3-padding-64" id="data">
     <div class="w3-col m6 w3-padding-large w3-hide-small">
-        <br>
-        <br>
-        <br>
+      <br>
+      <br>
+      <br>
 
-    <img src="passage.jpg" class="w3-round w3-image" alt="Table Setting" width="600" height="750">
-    <h4 class="text-center"><a href="https://microsoft.github.io/msmarco/Datasets.html" class="button">MSMARCO Dataset</a></h4>
+      <img src="passage.jpg" class="w3-round w3-image" alt="Table Setting" width="600" height="750">
+      <h4 class="text-center"><a href="https://microsoft.github.io/msmarco/Datasets.html" class="button">MSMARCO
+          Dataset</a></h4>
     </div>
 
     <div class="w3-col m6 w3-padding-large">
-        <div class="test2">
-      <h1 class="w3-center">The Data</h1><br>
-      <h5 class="w3-center">MSMARCO</h5>
-      <p class="w3-large">For our experiments, we use the MS MARCO open dataset, specifically its full validation set to evaluate our algorithms performances.
-        <br>
-        MS MARCO is an open dataset from Microsoft that was generated from real life Bing searches. Its full validation set consists of 1600 queries, and 276,142 passages to retrieve from. For each query, 1-3 passages have been manually determined as relevant, which is used as the ground truth for calculating the accuracy metrics such as MRR and Recall.
-        <br>
-        Our algorithm is based on a pre-trained flavor of SPLADE available on Huggingface as naver/splade-cocondenser-ensembledistil. We did not retrain the SPLADE model in any way, and only tuned its indexing and retrieval processes.
-        <br>
-        For the topic based approach, we used a pre-trained classifier (hf: cardiffnlp/tweet-topic-21-multi) to classify the topic of all the passages and queries.
-        <br>
-        The topic classification of passages are pre-computed offline using a large notebook instance (ml.c5d.9xlarge), while the retrieval experiments were all carried out in a ml.c5d.2xlarge instance.</p>
-    </div>
+      <div class="test2">
+        <h1 class="w3-center">The Data</h1><br>
+        <h5 class="w3-center">MSMARCO</h5>
+        <p class="w3-large">For our experiments, we use the MS MARCO open dataset, specifically its full validation set
+          to evaluate our algorithms performances.
+          <br>
+          MS MARCO is an open dataset from Microsoft that was generated from real life Bing searches. Its full
+          validation set consists of 1600 queries, and 276,142 passages to retrieve from. For each query, 1-3 passages
+          have been manually determined as relevant, which is used as the ground truth for calculating the accuracy
+          metrics such as MRR and Recall.
+          <br>
+          Our algorithm is based on a pre-trained flavor of SPLADE available on Huggingface as
+          naver/splade-cocondenser-ensembledistil. We did not retrain the SPLADE model in any way, and only tuned its
+          indexing and retrieval processes.
+          <br>
+          For the topic based approach, we used a pre-trained classifier (hf: cardiffnlp/tweet-topic-21-multi) to
+          classify the topic of all the passages and queries.
+          <br>
+          The topic classification of passages are pre-computed offline using a large notebook instance
+          (ml.c5d.9xlarge), while the retrieval experiments were all carried out in a ml.c5d.2xlarge instance.
+        </p>
+      </div>
     </div>
   </div>
 
@@ -300,24 +380,27 @@ h1, h2, h4, h5 {
 
   <!-- Results Section -->
   <div class="w3-row w3-padding-64" id="results">
-      <h1 class="w3-center">Top 2 Performing Results</h1><br>
-      <p class="w3-center" style="padding-left: 200px; padding-right: 200px; font-size: 24px;">
-        The goal of our project was to reduce the retrieval time of neural information retrieval and we successfully did that while also maintaining
-         MRR@10 and Recall@1000!  The best performing approach was the Query Reduction Approach and we were able to reduce it by 121 sec or 2 min. 
-      </p>
-      <img src="finalresults.jpg" class="w3-round w3-image" alt="Table Setting" width="2000" height="650">
+    <h1 class="w3-center">Top 2 Performing Results</h1><br>
+    <p class="w3-center" style="padding-left: 200px; padding-right: 200px; font-size: 24px;">
+      The goal of our project was to reduce the retrieval time of neural information retrieval and we successfully did
+      that while also maintaining
+      MRR@10 and Recall@1000! The best performing approach was the Query Reduction Approach and we were able to reduce
+      it by 121 sec or 2 min.
+    </p>
+    <img src="finalresults.jpg" class="w3-round w3-image" alt="Table Setting" width="2000" height="650">
   </div>
-   
+
 
   <hr>
-  
-<!-- End page content -->
-</div>
 
-<!-- Footer -->
-<footer class="w3-center w3-light-grey w3-padding-32">
-  <p>Last Updated 04/16/2023</p>
-</footer>
+  <!-- End page content -->
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-center w3-light-grey w3-padding-32">
+    <p>Last Updated 04/16/2023</p>
+  </footer>
 
 </body>
+
 </html>

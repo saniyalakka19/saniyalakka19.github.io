@@ -1,158 +1,207 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Neural Information Retrieval</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<style>
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  letter-spacing: 1px;
-}
-h1, h2, h4, h5 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  letter-spacing: 5px;
-}
+    <title>Neural Information Retrieval</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        h1,
+        h2,
+        h4,
+        h5 {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            letter-spacing: 5px;
+        }
 
 
-.test{
-    padding: 20px 25px;
-    border-radius: 5px;
-    background-color: #b8d2fa;
-}
-.test2{
-    padding: 20px 25px;
-    border-radius: 5px;
-    background-color: #b0dbbf96;
-}
-.column {
-  float: left;
-  width: 33.33%;
-}
+        .test {
+            padding: 20px 25px;
+            border-radius: 5px;
+            background-color: #b8d2fa;
+        }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+        .test2 {
+            padding: 20px 25px;
+            border-radius: 5px;
+            background-color: #b0dbbf96;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
 
 
-.button {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: black;
-  background-color: #b8d2fa;
-  border: none;
-  border-radius: 15px;
-  transition-duration: 0.4s;
-}
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: black;
+            background-color: #b8d2fa;
+            border: none;
+            border-radius: 15px;
+            transition-duration: 0.4s;
+        }
 
-.button:hover {background-color: #75a7f5}
+        .button:hover {
+            background-color: #75a7f5
+        }
 
-.text-center {
-  text-align: center;
-}
-.head{
-    color: white;
-}
+        .text-center {
+            text-align: center;
+        }
 
-</style>
+        .head {
+            color: white;
+        }
+    </style>
 </head>
+
 <body>
     <!-- Navbar (sit on top) -->
-<div class="w3-top">
-    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-      <a href="#home" class="w3-bar-item w3-button" style="letter-spacing:4px; background-color: #b8d2fa;">University of California Berkeley Capstone</a>
-      <!-- Right-sided navbar links. Hide them on small screens -->
-      <div class="w3-right w3-hide-small">
-        <a href="index.html" class="w3-bar-item w3-button"  style="letter-spacing:4px; background-color: #8bdca7;">HOME</a>
-        <a href="#approach" class="w3-bar-item w3-button" style="letter-spacing:4px; background-color: #8bdca7;">APPROACH</a>
-        <a href="#results" class="w3-bar-item w3-button" style="letter-spacing:4px; background-color: #8bdca7;">RESULTS</a>
-      </div>
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+            <a href="#home" class="w3-bar-item w3-button"
+                style="letter-spacing:4px; background-color: #b8d2fa;">University of California Berkeley Capstone</a>
+            <!-- Right-sided navbar links. Hide them on small screens -->
+            <div class="w3-right w3-hide-small">
+                <a href="index.html" class="w3-bar-item w3-button"
+                    style="letter-spacing:4px; background-color: #8bdca7;">HOME</a>
+                <a href="#approach" class="w3-bar-item w3-button"
+                    style="letter-spacing:4px; background-color: #8bdca7;">APPROACH</a>
+                <a href="#results" class="w3-bar-item w3-button"
+                    style="letter-spacing:4px; background-color: #8bdca7;">RESULTS</a>
+            </div>
+        </div>
     </div>
-</div>
 
-<!-- Page content -->
-<div class="w3-content" style="max-width: 2100px">
-  
-  <!-- Approach Section -->
-  <div class="w3-row w3-padding-64" id="approach">
-    <div class="w3-col l6 w3-padding-large">
-        <div class="test">
-      <h1 class="w3-center">Topic-Based Approach</h1><br>
-    <p>The high level idea here is to apply a faster filter to passages during document retrieval based on its topic, before it gets ranked along with all the passages. 
-        <br>
-        Concretely, our retrieval algorithm is as follows:
-        <br>
-        <ul>
-          <li> In addition to having a sparse index in the vocabulary space for each passage, also use a pre-trained topic model to generate a sparse index which contains a topic score for each passage over the fixed topics (there are 19 of them).</li>
-          <li> Given an incoming query, use the same model to score this query against the same topics</li>
-          
-          <li> Trim the topic vector of this query so only scores above a QUERY_THRESHOLD remain, and other topics will be set to 0. This makes the topic vector sparse.</li>
-          
-          <li> Alternative to 3, is to trim the topic vector of this query so only top k topics are kept, which results in a similar sparse topic vector</li>
-          
-          <li> Load the topic scores of all passages in memory, then trim them as well, so only scores above PASSAGE_THRESHOLD remain, the other entries will be set to 0. This makes the passage topic vectors sparse too.</li>
-          
-          <li> Similarly, alternative to 5, we can keep only the top m entries in each passage topic scores too</li>
-          
-          <li> As part of the SPLADE process, when scoring the passages for each query, consider if the query has any overlap of topics with the passage. If not, directly eliminate this passage from consideration and exclude this passage from the ranking stage.</li>
-          
-          <li> If yes, we could either weigh SPLADE score by the dot product (or cosine similarity) between the topic vectors of the query and the passage, or simply use the SPLADE score directly. The former will give passages that have a strong topic overlap with the query a higher weighting, and serve as another distinguishing factor between passages, however the latter will be significantly faster, since it removes the computation of the doc products.</li>
-        </ul>
-        </p>
-    </div>
-    </div>
-    
-    <div class="w3-col l6 w3-padding-large">
-        <img src="topic.jpg" class="w3-round w3-image"  alt="Table Setting" width="800" height="1070">
+    <!-- Page content -->
+    <div class="w3-content" style="max-width: 2100px;  background-color: #d7e4f8;">
 
-    </div>
-  </div>
-    <!-- Results Section -->
-    <div class="w3-row w3-padding-64" id="results">
-    </div>
-      <h1 class="w3-center">Experiments and Results</h1><br>
+        <!-- Approach Section -->
+        <div class="w3-row w3-padding-64" id="approach">
+            <div class="w3-col l6 w3-padding-large">
+                <div class="test">
+                    <h1 class="w3-center">Topic-Based Approach</h1><br>
+                    <p>The high level idea here is to apply a faster filter to passages during document retrieval based
+                        on its topic, before it gets ranked along with all the passages.
+                        <br>
+                        Concretely, our retrieval algorithm is as follows:
+                        <br>
+                    <ul>
+                        <li> In addition to having a sparse index in the vocabulary space for each passage, also use a
+                            pre-trained topic model to generate a sparse index which contains a topic score for each
+                            passage over the fixed topics (there are 19 of them).</li>
+                        <li> Given an incoming query, use the same model to score this query against the same topics
+                        </li>
+
+                        <li> Trim the topic vector of this query so only scores above a QUERY_THRESHOLD remain, and
+                            other topics will be set to 0. This makes the topic vector sparse.</li>
+
+                        <li> Alternative to 3, is to trim the topic vector of this query so only top k topics are kept,
+                            which results in a similar sparse topic vector</li>
+
+                        <li> Load the topic scores of all passages in memory, then trim them as well, so only scores
+                            above PASSAGE_THRESHOLD remain, the other entries will be set to 0. This makes the passage
+                            topic vectors sparse too.</li>
+
+                        <li> Similarly, alternative to 5, we can keep only the top m entries in each passage topic
+                            scores too</li>
+
+                        <li> As part of the SPLADE process, when scoring the passages for each query, consider if the
+                            query has any overlap of topics with the passage. If not, directly eliminate this passage
+                            from consideration and exclude this passage from the ranking stage.</li>
+
+                        <li> If yes, we could either weigh SPLADE score by the dot product (or cosine similarity)
+                            between the topic vectors of the query and the passage, or simply use the SPLADE score
+                            directly. The former will give passages that have a strong topic overlap with the query a
+                            higher weighting, and serve as another distinguishing factor between passages, however the
+                            latter will be significantly faster, since it removes the computation of the doc products.
+                        </li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <div class="w3-col l6 w3-padding-large">
+                <img src="topic.jpg" class="w3-round w3-image" alt="Table Setting" width="800" height="1070">
+
+            </div>
+        </div>
+        <!-- Results Section -->
+        <div class="w3-row w3-padding-64" id="results">
+        </div>
+        <h1 class="w3-center">Experiments and Results</h1><br>
         <div class="test2">
-          <p class="w3-large">
-                As described in the previous section, there are a number of parameters that lead to different configurations of the retrieval algorithm. Notably: <br>
-                &emsp; &bull; Query Topic Filter Threshold: If less than 1, the topic score of the query is set to 0 if below the threshold. If greater than 1, this is the number of top topics to remain in the query topic vector. <br>
-                &emsp; &bull; Passage Topic Filter Threshold: If less than 1, the topic score of the passage is set to 0 if below the threshold. If greater than 1, this is the number of top topics to remain in the passage topic vector. <br>
-                &emsp; &bull; Final Score Filter Threshold: When retrieving passages for a given query, the pair’s relevance score is determined by the dot product of their SPLADE vectors. If the final relevance score is below the threshold, it’s set to 0 and does not enter the passage ranking.<br>
-                &emsp; &bull; Weighed by Topic Overlap: A true/false configuration that determines whether the relevance scores calculated by SPLADE gets weighted by the topic overlap of the passage and the query too. <br>
-                    <br>
-                With a large number of possible configurations, we’ve taken a manually guided approach and tried a number of combinations as we aim to optimize for the retrieval time with minimum impact on accuracy. Below is the full set of results of all experiments we conducted, ranked by accuracy (MRR and Recall@1000) in descending order.
+            <p class="w3-large">
+                As described in the previous section, there are a number of parameters that lead to different
+                configurations of the retrieval algorithm. Notably: <br>
+                &emsp; &bull; Query Topic Filter Threshold: If less than 1, the topic score of the query is set to 0 if
+                below the threshold. If greater than 1, this is the number of top topics to remain in the query topic
+                vector. <br>
+                &emsp; &bull; Passage Topic Filter Threshold: If less than 1, the topic score of the passage is set to 0
+                if below the threshold. If greater than 1, this is the number of top topics to remain in the passage
+                topic vector. <br>
+                &emsp; &bull; Final Score Filter Threshold: When retrieving passages for a given query, the pair’s
+                relevance score is determined by the dot product of their SPLADE vectors. If the final relevance score
+                is below the threshold, it’s set to 0 and does not enter the passage ranking.<br>
+                &emsp; &bull; Weighed by Topic Overlap: A true/false configuration that determines whether the relevance
+                scores calculated by SPLADE gets weighted by the topic overlap of the passage and the query too. <br>
+                <br>
+                With a large number of possible configurations, we’ve taken a manually guided approach and tried a
+                number of combinations as we aim to optimize for the retrieval time with minimum impact on accuracy.
+                Below is the full set of results of all experiments we conducted, ranked by accuracy (MRR and
+                Recall@1000) in descending order.
 
 
         </div>
-  </div>
-    <!-- Data Section -->
+    
+
     <div class="w3-row w3-padding-64" id="results">
         <div class="w3-col m6 w3-padding-large w3-hide-small">
-    
-        <img src="topicresult.jpg" class="w3-round w3-image" alt="Table Setting" width="800" height="950">
+
+            <img src="topicresult.jpg" class="w3-round w3-image" alt="Table Setting" width="800" height="950">
         </div>
-    
+
         <div class="w3-col m6 w3-padding-large">
-        <div class="test2">
-          <p class="w3-large">
-            As can be seen, the baseline SPLADE model still has the highest accuracy metrics. However, there is a spectrum of different configurations that can achieve different trade-offs between retrieval time and accuracy, for example Run 19, where only top 2 topics of each query and top 3 topics of passage are kept and used to filter the passages, can accelerate retrieval time by about 6%, with a only a slight loss of MRR from 0.19 to 0.17. <br> <br>
+            <div class="test2">
+                <p class="w3-large">
+                    As can be seen, the baseline SPLADE model still has the highest accuracy metrics. However, there is
+                    a spectrum of different configurations that can achieve different trade-offs between retrieval time
+                    and accuracy, for example Run 19, where only top 2 topics of each query and top 3 topics of passage
+                    are kept and used to filter the passages, can accelerate retrieval time by about 6%, with a only a
+                    slight loss of MRR from 0.19 to 0.17. <br> <br>
 
-            Overall, there are some positive results and learnings from this approach, for example: <br>
-            &emsp; &bull; We’re able to speed up retrieval time by as much as 20% (Run 28) with still fair acceptable accuracy <br>
-            &emsp; &bull; Weighing SPLADE scores by topic overlap incurs a lot more computation for no gain on accuracy <br>
-            &emsp; &bull; Keeping a broader number of topics on the passages are more important than on the queries, since the passages are longer and could be relevant to a broader set of topics <br>
-            &emsp; &bull;Of course, the pre-trained topic classifier makes a major difference in the timing and accuracy of the overall algorithm, however we were not able to explore its concrete effects. <br>
-            
+                    Overall, there are some positive results and learnings from this approach, for example: <br>
+                    &emsp; &bull; We’re able to speed up retrieval time by as much as 20% (Run 28) with still fair
+                    acceptable accuracy <br>
+                    &emsp; &bull; Weighing SPLADE scores by topic overlap incurs a lot more computation for no gain on
+                    accuracy <br>
+                    &emsp; &bull; Keeping a broader number of topics on the passages are more important than on the
+                    queries, since the passages are longer and could be relevant to a broader set of topics <br>
+                    &emsp; &bull;Of course, the pre-trained topic classifier makes a major difference in the timing and
+                    accuracy of the overall algorithm, however we were not able to explore its concrete effects. <br>
 
+
+            </div>
         </div>
-        </div>
-      </div>
-
+    </div>
+    </div>
